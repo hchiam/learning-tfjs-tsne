@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tfjs-tsne demo</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.14.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-tsne"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-vis"></script>
+  </head>
+  <body>
+    <p>References:</p>
+    <ul>
+      <li>
+        <a href="https://github.com/tensorflow/tfjs-tsne" target="_blank"
+          >https://github.com/tensorflow/tfjs-tsne</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://github.com/tensorflow/tfjs/tree/master/tfjs-vis"
+          target="_blank"
+          >https://github.com/tensorflow/tfjs/tree/master/tfjs-vis</a
+        >
+      </li>
+    </ul>
+
+    <p id="message">Wait for data to process...</p>
+
+    <script>
+      const data = tf.randomUniform([2000, 10]);
+      console.log("data", data);
+
+      const tsneOptimizer = tsne.tsne(data);
+      console.log("tsneOptimizer", tsneOptimizer);
+
+      const iterations = 100; // otherwise 1000 iterations by default
+
+      computeTSNEEmbedding(tsneOptimizer, iterations, (coordinatesArray) => {
+        plot(coordinatesArray, () => {
+          const message = "Done processing data!";
+          $("#message").text(message);
+          console.log(message);
+        });
+      });
+
+      function computeTSNEEmbedding(tsneOptimizer, iterations, callback) {
+        tsneOptimizer
+          .compute(iterations)
+          .then(() => {
+            // tsne.coordinate returns a *tensor* with x, y coordinates of
+            // the embedded data.
+            const coordinatesTensor = tsneOptimizer.coordinates();
+            console.log("coordinatesTensor", coordinatesTensor);
+            coordinatesTensor.print();
+
+            const coordinatesArray = tsneOptimizer.coordsArray();
+            return coordinatesArray;
+          })
+          .then((coordinatesArray) => {
+            console.log("coordinatesArray", coordinatesArray);
+            if (callback) callback(coordinatesArray);
+          });
+      }
+
+      function plot(coordinatesArray, callback) {
+        const series = coordinatesArray.map((x) => {
+          const label = `(${Math.round(x[0] * 100) / 100}, ${
+            Math.round(x[1] * 100) / 100
+          })`;
+          return { x: x[0], y: x[1], label: label };
+        });
+
+        const data = { values: [series], series: "series" };
+
+        const surface = { name: "Scatterplot", tab: "Charts" };
+        tfvis.render.scatterplot(surface, data).then(() => {
+          if (callback) callback();
+        });
+      }
+    </script>
+  </body>
+</html>
