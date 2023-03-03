@@ -6,7 +6,7 @@ Get **t-SNE** output coordinates with [`tfjs-tsne`](https://github.com/hchiam/tf
 
 Great explanation of SNE vs t-SNE (vs UMAP - which sounds better than t-SNE): https://towardsdatascience.com/visualizing-your-embeddings-4c79332581a9 - basically UMAP is better than t-SNE is better than SNE (which is related to the order they were invented).
 
-Integration note: because tfjs-tsne and tfjs-vis are unmaintained and rely on an old version of tfjs that conflicts with the version of tfjs that models like universal-sentence-encoder rely on, I recommend swapping tfjs-tsne with [umap-js](https://github.com/PAIR-code/umap-js#umap-js) and swapping tfjs-vis with [chart.js](https://github.com/chartjs/Chart.js) so they all play nice together. Apparently UMAP is better than t-SNE anyways.
+Integration note: because tfjs-tsne and tfjs-vis are unmaintained and rely on an old version of tfjs that conflicts with the version of tfjs that models like universal-sentence-encoder rely on, I recommend swapping tfjs-tsne with [umap-js](https://github.com/PAIR-code/umap-js#umap-js) and swapping tfjs-vis with [chart.js](https://github.com/chartjs/Chart.js) so they all play nice together. Apparently UMAP is better than t-SNE anyways. My other repo that uses [umap-js](https://github.com/PAIR-code/umap-js#umap-js) can be found here: https://github.com/hchiam/learning-tfjs-umap
 
 ## Starting by testing out this repo
 
