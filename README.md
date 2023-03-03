@@ -15,14 +15,14 @@ Run `yarn global add parcel` or `npm install -g parcel`, and then:
 Using [`yarn`](https://github.com/hchiam/learning-yarn): (triple-click to select all)
 
 ```bash
-git clone https://github.com/hchiam/learning-template.git && cd learning-template && yarn;
+git clone https://github.com/hchiam/learning-tfjs-tsne.git && cd learning-tfjs-tsne && yarn;
 yarn dev;
 ```
 
 Or with `npm`: (triple-click to select all)
 
 ```bash
-git clone https://github.com/hchiam/learning-template.git && cd learning-template && npm install;
+git clone https://github.com/hchiam/learning-tfjs-tsne.git && cd learning-tfjs-tsne && npm install;
 npm run dev;
 ```
 
