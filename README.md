@@ -28,6 +28,8 @@ npm run dev;
 
 ## notes to self
 
+First run `yarn dev` to create the /dist folder, and then run this:
+
 ```sh
 yarn deploy
 ```
