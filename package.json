@@ -3,7 +3,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "parcel index.html",
-    "lint": "prettier --write *.{js,css,html,scss,json,md,ts,tsx}"
+    "lint": "prettier --write *.{js,css,html,scss,json,md,ts,tsx}",
+    "deploy": "surge . https://tjfs-tsne-demo.surge.sh"
   },
   "dependencies": {},
   "devDependencies": {

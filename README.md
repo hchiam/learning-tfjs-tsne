@@ -25,3 +25,11 @@ Or with `npm`: (triple-click to select all)
 git clone https://github.com/hchiam/learning-template.git && cd learning-template && npm install;
 npm run dev;
 ```
+
+## notes to self
+
+```sh
+yarn deploy
+```
+
+https://tjfs-tsne-demo.surge.sh
