@@ -8,6 +8,8 @@ Great explanation of SNE vs t-SNE (vs UMAP - which sounds better than t-SNE): ht
 
 Integration note: because tfjs-tsne and tfjs-vis are unmaintained and rely on an old version of tfjs that conflicts with the version of tfjs that models like universal-sentence-encoder rely on, I recommend swapping tfjs-tsne with [umap-js](https://github.com/PAIR-code/umap-js#umap-js) and swapping tfjs-vis with [chart.js](https://github.com/chartjs/Chart.js) so they all play nice together. Apparently UMAP is better than t-SNE anyways. My other repo that uses [umap-js](https://github.com/PAIR-code/umap-js#umap-js) can be found here: https://github.com/hchiam/learning-tfjs-umap
 
+Learn more about TensorFlow at https://github.com/hchiam/learning-tensorflow
+
 ## Starting by testing out this repo
 
 Run `yarn global add parcel` or `npm install -g parcel`, and then:
